@@ -111,7 +111,7 @@ const FileServiceUI = () => {
       selectedFiles.forEach(file => {
         formData.append('files', file);
       });
-      console.log(formData);
+      // console.log(formData);
       const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
       // fetching data from Backend API 
