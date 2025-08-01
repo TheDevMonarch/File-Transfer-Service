@@ -4,6 +4,7 @@ import './CSS/fileServiceUI.css';
 const FileServiceUI = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [toEmail, setToEmail] = useState('');
+  const [pass, setPass] = useState('');
   const [message, setMessage] = useState({ text: '', type: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fileInputRef = useRef(null);
@@ -105,6 +106,7 @@ const FileServiceUI = () => {
     try {
       const formData = new FormData();
       formData.append('toEmail', toEmail);
+      formData.append('pass', pass);
       
       selectedFiles.forEach(file => {
         formData.append('files', file);
@@ -119,6 +121,7 @@ const FileServiceUI = () => {
       });
 
       const result = await response.json();
+      console.log('Response:', result);
       
       if (response.ok && result.message) {
         showMessage(result.message, 'success');
@@ -154,6 +157,7 @@ const FileServiceUI = () => {
                 Recipient Email Address
               </label>
               <input
+                style={{color: 'black'}}
                 type="email"
                 id="toEmail"
                 value={toEmail}
@@ -161,6 +165,22 @@ const FileServiceUI = () => {
                 placeholder="recipient@example.com"
                 required
                 className="email-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="pass" className="label">
+                Enter Your Password
+              </label>
+              <input
+                style={{color: 'black'}}
+                type="password"
+                id="pass"
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
+                placeholder="Enter your password"
+                required
+                className="password-input"
               />
             </div>
 
