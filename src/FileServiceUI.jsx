@@ -124,10 +124,11 @@ const FileServiceUI = () => {
       console.log('Response:', result);
       
       if (response.ok && result.message) {
-        showMessage(result.message, 'success');
-        // Reset form
+        //showMessage(result.message, 'success');
+        showMessage(formData);       // Reset form
         setSelectedFiles([]);
         setToEmail('');
+        setPass('')
       } else {
         showMessage('Error: ' + (result.message || 'Failed to send files'), 'error');
       }
