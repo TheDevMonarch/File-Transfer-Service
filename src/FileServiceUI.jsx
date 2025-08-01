@@ -111,10 +111,10 @@ const FileServiceUI = () => {
       selectedFiles.forEach(file => {
         formData.append('files', file);
       });
-
+      console.log(formData);
       const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-      // Replace with your actual API endpoint
+      // fetching data from Backend API 
       const response = await fetch(`${backendUrl}/api/send`, {
         method: 'POST',
         body: formData
