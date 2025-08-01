@@ -124,8 +124,8 @@ const FileServiceUI = () => {
       console.log('Response:', result);
       
       if (response.ok && result.message) {
-        //showMessage(result.message, 'success');
-        showMessage(formData);       // Reset form
+        showMessage(result.message, 'success');
+         // Reset form
         setSelectedFiles([]);
         setToEmail('');
         setPass('')
