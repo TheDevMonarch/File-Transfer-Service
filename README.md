@@ -1,12 +1,66 @@
-# React + Vite
+# File Transfer Service – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **React-based frontend** for the `file-transfer-service`, a simple file-sending tool that lets users send files via email using a backend powered by `nodemailer` and `multer`. No login or signup is required. Files are transferred securely with a one-time password validated from the `.env` config.
 
-Currently, two official plugins are available:
+## 🌐 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Upload and send up to 10 files to any valid email address.
+- Email is sent via SMTP configured in the backend.
+- No user registration or login required.
+- Secure: a password is checked before sending (provided via POST and compared to `.env`).
+- Responsive and minimal UI built using **React**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Folder Structure
+```
+file-transfer-service-frontend/
+├── src/
+│ ├── CSS/
+│ │ └── fileServiceUI.css
+│ ├── App.jsx
+│ ├── FileServiceUI.jsx
+│ ├── index.css
+│ └── main.jsx
+├── .gitignore
+├── LICENSE
+├── README.md
+├── eslint.config.js
+├── index.html
+├── .env
+├── package-lock.json
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory with:
+
+---
+
+```env
+VITE_BACKEND_URL= localhost_backend_URL or Deployed_Backend_URL
+```
+---
+## 🚀 Running the Project
+
+### 1. Install dependencies:
+```bash
+npm install
+```
+
+### 2. Run the development server:
+```bash
+npm run dev
+```
+
+---
+
+## 🛡️ Security Note
+-Even though the app allows sending without login, a POST-based password protection is implemented in the backend to prevent abuse.
+
+---
+
